@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  transition: transform 0.3s ease-in-out;
+  color: white;
+}
+
+.background {
+  background: radial-gradient(circle, rgb(0, 0, 0), #122143);
+}
