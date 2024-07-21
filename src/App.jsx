@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import DropdownMenu from './Components/DropdownMenu';
 
-import classNames from 'classnames';
 
 
 
@@ -233,14 +233,11 @@ function start() {
  
 }
 
-
-
-
-
-
   return (
-
 <div className='flex flex-1 flex-col h-screen w-screen bg-gray-950'>
+  <div className='flex flex-1 items-center justify-center bg-gradient-to-bl from-blue-600 to-slate-900'> 
+    <p className='text-[1.5rem] font-bold '>Passwords Game</p>
+  </div>
   <div className='flex w-page justify-between bg-gray-950'>
   <div className='flex flex-col bg-red-800 items-center justify-center p-2 text-center w-[35%]'>
 <div onClick={() => { setTeamOnePoints(teamOnePoints + 1)}} className=' flex items-center justify-center '>+</div>
@@ -255,18 +252,18 @@ function start() {
 </div>
   </div>
 
-<div className=' text-[2.5rem] flex flex-1 min-h-[70%] items-center justify-center background'>{word}</div>
+<div className=' text-[2.5rem] flex min-h-[60%] items-center justify-center background'>{word}</div>
 
-<div className='flex flex-1 items-center justify-center gap-6'>
+<div className='flex flex-1 items-center justify-center gap-6 h-[100px]'>
 <button onClick={correct } className=' w-[20%] bg-green-400 rounded p-2'><i className="fa-solid fa-thumbs-up"></i></button>
 <button onClick={skipWord} className=' w-[20%] bg-slate-500 rounded p-2' ><i className="fa-solid fa-forward"></i></button>
 <button onClick={fail} className=' w-[20%] bg-red-400 rounded p-2'><i className="fa-solid fa-thumbs-down"></i></button>
 </div>
-<div className='flex justify-between'> 
+<div className='flex justify-between h-[75px]'> 
 
 <div className='flex flex-1'>
-<button className='flex justify-center items-center flex-1 bg-slate-600'><i class="fa-solid fa-bars"></i></button>
-<button className='flex justify-center items-center flex-1 bg-slate-600'><i className="fa-solid fa-gear"></i></button>
+<div className='flex justify-center items-center flex-1 bg-slate-600'> <DropdownMenu/></div>
+<button className='flex justify-center items-center flex-1 bg-sky-200'><i className="fa-solid fa-rotate-right text-black"></i></button>
 </div>
 
 <div className='flex flex-1 flex-col background'>
@@ -275,16 +272,18 @@ function start() {
 </div>
 
 <div className='flex justify-center items-center flex-1 bg-slate-600' >
- <div className='flex flex-1 justify-center'> 
- <div className='flex flex-col flex 1 w-[25px] bg-slate-700'>
+
+ <div className='flex flex-col flex-1 h-[100%] w-[100%] items-center '>
   <div onClick={() => {clockTimeAdjust(10)}} className=' flex items-center justify-center'>+</div>
+  <div className='flex flex-1 justify-center items-center px-2 w-[50px] text-ellipsis overflow-auto whitespace-nowrap'> {clock}'s</div>
  <div onClick={() => {clockTimeAdjust(-10)}} className=' flex items-center justify-center' >-</div>
  </div>
- <div className='flex flex-1 justify-center items-center px-2 w-[50px] text-ellipsis overflow-auto whitespace-nowrap'> {clock}'s</div>
- </div>
+
+
+ 
   <div className='flex flex-col flex-1 h-[100%] w-[100%] items-center '>
-    <div onClick={start} className=' flex w-[100%] h-[100%] flex-1 bg-green-500 justify-center items-center'>start</div>
-    {/* <div className=' flex w-[100%] flex-1 bg-red-500 justify-center '>pause</div> */}
+    <div onClick={start} className=' flex w-[100%] h-[100%] flex-1 bg-green-500 justify-center items-center'>Start</div>
+    <div className=' flex w-[100%] flex-1 bg-red-500 justify-center items-center'>Stop</div>
   </div>
 </div>
 
