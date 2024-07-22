@@ -53,7 +53,7 @@ export default function DropdownMenu() {
               New Game
             </a>
             <a
-              href="order"
+              href="AddWords"
               className="text-white block px-4 py-2 text-sm hover:bg-gray-100"
               role="menuitem"
               tabIndex="-1"
