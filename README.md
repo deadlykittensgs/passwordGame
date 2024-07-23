@@ -4,14 +4,6 @@ https://passwordgamerm.netlify.app
 
 
 
-
-
-
-
-
-
-
-
 game is starting with "allwords" === the words added on the other page   
 
 when the reset button is clicked the function is run "getWords" console logging out all words 

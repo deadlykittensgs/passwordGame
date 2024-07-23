@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import DropdownMenu from '../Components/DropdownMenu';
 import Header from '../Components/Header'
-import { arrayRemove, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase'
 
 
@@ -10,16 +10,27 @@ import { db } from '../firebase'
 // init app 
 function App() {
 
+// clean usestates  
+  const [teamOnePoints, setTeamOnePoints ] = useState(0)
+  const [teamTwoPoints, setTeamTwoPoints ] = useState(0)
+  const [word, setWord ] = useState("Ready?")
+  const [clock, setClock] = useState(60)
+  const [thisRound, setThisRound] = useState(0)
+  const [skippedThisRound, setSkippedThisRound] = useState(0)
+  const [teamOne, setTeamOne] = useState(true)
+  const [StoredClock, setStoredClock] = useState("")
   // declare react UseState variables
   const [allWords, setAllWords] = useState([])
   const [wordElements, setWordElements] = useState([])
-  const [teleWords, setTeleWords] = useState([])
-  const [totalLength, setTotalLength] = useState(1)
+  const [teleWords, setTeleWords] = useState(["original word", "original word one", "original word two", "original word three"])
+  const [onLoad, setOnLoad] = useState(false)
+
+
+
 
 
 // words used in the game (need to be set to the firestore library)
-const telephoneWords = ["original word", "original word one", "original word two", "original word three"];
-
+const telephoneWords = teleWords
 
 
 // fetches words from firestore and returns them as (all words) 
@@ -33,7 +44,6 @@ const telephoneWords = ["original word", "original word one", "original word two
         console.error("Error fetching documents: ", e);
         console.log(allWords)
         console.log(wordElements)
-
       }
     }
   
@@ -62,29 +72,18 @@ const telephoneWords = ["original word", "original word one", "original word two
     endArray.push(allWords[i].word)
   }
 
-
-  telephoneWords.push(...endArray)  // push words to the array for the game to start
-    console.log(endArray)
+  setTeleWords(endArray)  
+  console.log(endArray)
     // console.log(allWords[0].word)
     console.log(allWords.length)
     console.log(telephoneWords)
-    console.log(telephoneWords.length)
+    // console.log(telephoneWords.length)
     fetchWords()
   }
 
 
 
 // everything below this is clean 
-
-  const [teamOnePoints, setTeamOnePoints ] = useState(0)
-  const [teamTwoPoints, setTeamTwoPoints ] = useState(0)
-  const [word, setWord ] = useState("Ready?")
-  const [clock, setClock] = useState(60)
-  const [thisRound, setThisRound] = useState(0)
-  const [skippedThisRound, setSkippedThisRound] = useState(0)
-  const [teamOne, setTeamOne] = useState(true)
-  const [StoredClock, setStoredClock] = useState("")
-
 
   function getNewWord() {
     if (word == "Ready?" ) {
@@ -95,6 +94,12 @@ const telephoneWords = ["original word", "original word one", "original word two
       return
     }
   }
+// onLoad 
+if (onLoad == false) {
+  console.log("popped")
+  getWords()
+  setOnLoad(true)
+} 
 
   
   function correct() {
@@ -104,11 +109,6 @@ const telephoneWords = ["original word", "original word one", "original word two
     console.log("clicked")
     let number = Math.floor(Math.random() * telephoneWords.length )
     setWord(telephoneWords[number])
-    console.log(telephoneWords.length)
-    console.log(word)
-    console.log(number)
-    // let lengthOfEverything = telephoneWords.length
-    // setThisRound(lengthOfEverything)
     return
   }
 
