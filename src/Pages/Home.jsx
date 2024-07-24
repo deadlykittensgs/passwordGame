@@ -5,8 +5,6 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase'
 
 
-
-
 // init app 
 function App() {
 
@@ -19,13 +17,11 @@ function App() {
   const [skippedThisRound, setSkippedThisRound] = useState(0)
   const [teamOne, setTeamOne] = useState(true)
   const [StoredClock, setStoredClock] = useState("")
-  // declare react UseState variables
+  
+  // declare react UseState variables for firebase
   const [allWords, setAllWords] = useState([])
   const [wordElements, setWordElements] = useState([])
   const [teleWords, setTeleWords] = useState(["original word", "original word one", "original word two", "original word three"])
-  const [onLoad, setOnLoad] = useState(false)
-
-
 
 
 
@@ -73,13 +69,41 @@ const telephoneWords = teleWords
   }
 
   setTeleWords(endArray)  
-  console.log(endArray)
+  // console.log(endArray)
     // console.log(allWords[0].word)
-    console.log(allWords.length)
-    console.log(telephoneWords)
+    // console.log(allWords.length)
+    // console.log(telephoneWords)
     // console.log(telephoneWords.length)
     fetchWords()
   }
+
+
+
+
+
+
+  // Use useEffect to call fetchWords on component mount.
+  useEffect(() => {
+    fetchWords();
+  }, []);
+
+
+  // Use useEffect to call getWords after allWords is updated.
+  useEffect(() => {
+    if (allWords.length > 0) {
+      getWords();
+    }
+  }, [allWords]);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94,21 +118,16 @@ const telephoneWords = teleWords
       return
     }
   }
-// onLoad 
-if (onLoad == false) {
-  console.log("popped")
-  getWords()
-  setOnLoad(true)
-} 
+
 
   
   function correct() {
     if (clock == 0 || word == "Ready?" || word == "Next Team" ) {
       return
     }
-    console.log("clicked")
     let number = Math.floor(Math.random() * telephoneWords.length )
     setWord(telephoneWords[number])
+    scoreChange(+1)
     return
   }
 
@@ -262,7 +281,7 @@ function start() {
 
 <div className='flex flex-1'>
 <div className='flex justify-center items-center flex-1 bg-slate-600'> <DropdownMenu/></div>
-<button onClick={getWords} className='flex justify-center items-center flex-1 bg-sky-200'><i className="fa-solid fa-rotate-right text-black"></i></button>
+<button onClick={ () => {location.reload()}} className='flex justify-center items-center flex-1 bg-sky-200'><i className="fa-solid fa-rotate-right text-black"></i></button>
 </div>
 
 <div className='flex flex-1 flex-col background'>
@@ -282,7 +301,8 @@ function start() {
  
   <div className='flex flex-col flex-1 h-[100%] w-[100%] items-center '>
     <div onClick={start} className=' flex w-[100%] h-[100%] flex-1 bg-green-500 justify-center items-center'>Start</div>
-    <div className=' flex w-[100%] flex-1 bg-red-500 justify-center items-center'>Stop</div>
+    {/* stop button to be added to timer */}
+    {/* <div className=' flex w-[100%] flex-1 bg-red-500 justify-center items-center'>Stop</div> */}
   </div>
 </div>
 
