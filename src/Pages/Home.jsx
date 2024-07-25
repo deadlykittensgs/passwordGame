@@ -67,14 +67,8 @@ const telephoneWords = teleWords
   for (let i = 0; i < allWords.length; i++) {
     endArray.push(allWords[i].word)
   }
-
   setTeleWords(endArray)  
-  // console.log(endArray)
-    // console.log(allWords[0].word)
-    // console.log(allWords.length)
-    // console.log(telephoneWords)
-    // console.log(telephoneWords.length)
-    fetchWords()
+  fetchWords()
   }
 
 
@@ -82,18 +76,18 @@ const telephoneWords = teleWords
 
 
 
-  // // Use useEffect to call fetchWords on component mount.
-  // useEffect(() => {
-  //   fetchWords();
-  // }, []);
+  // Use useEffect to call fetchWords on component mount.
+  useEffect(() => {
+    fetchWords();
+  }, []);
 
 
-  // // Use useEffect to call getWords after allWords is updated.
-  // useEffect(() => {
-  //   if (allWords.length > 0) {
-  //     getWords();
-  //   }
-  // }, [allWords]);
+  // Use useEffect to call getWords after allWords is updated.
+  useEffect(() => {
+    if (allWords.length > 0) {
+      getWords();
+    }
+  }, [allWords]);
 
 
 
@@ -273,7 +267,7 @@ function start() {
 <div className=' text-[2.5rem] flex min-h-[60%] items-center justify-center background'>{word}</div>
 
 <div className='flex flex-1 items-center justify-center gap-6 h-[100px] bg-gradient-to-l from-pink-500 via-violet-600 to-sky-500 '>
-<button onClick={correct } className=' w-[20%] bg-gradient-to-r from-green-400 via-green-300 to-green-400 rounded p-2'><i className="fa-solid fa-thumbs-up"></i></button>
+<button onClick={correct } className=' w-[20%] bg-gradient-to-r from-green-400 via-green-300 to-green-400 rounded p-2 hover:bg-red-100'><i className="fa-solid fa-thumbs-up"></i></button>
 <button onClick={skipWord} className=' w-[20%] bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 rounded p-2' ><i className="fa-solid fa-forward"></i></button>
 <button onClick={fail} className=' w-[20%] bg-gradient-to-r from-red-400 via-red-300 to-red-400 rounded p-2'><i className="fa-solid fa-thumbs-down"></i></button>
 </div>
