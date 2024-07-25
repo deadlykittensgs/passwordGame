@@ -33,10 +33,10 @@ export default function AddWords() {
 
   
   return (
-    <div className='bg-blue-300 flex flex-col h-screen w-screen'>
+    <div className='bg-blue-400 flex flex-col h-screen w-screen'>
       <Header />
       <form onSubmit={submit} className='flex flex-1 flex-col justify-center items-center text-center'>
-        <p>type in words to be added to the game </p>
+        <p>Type in a word you want added to the game</p>
         <input 
           required 
           name='nameofinput' 
@@ -45,7 +45,7 @@ export default function AddWords() {
           value={newWord} 
           onChange={(e) => setNewWord(e.target.value)} 
         />
-        <button type='submit' className='bg-slate-300 p-2 rounded'>Submit</button>
+        <button type='submit' className='bg-blue-700 p-2 rounded'>Submit</button>
       </form>
 
       <div className='flex flex-col flex-1 justify-center items-center gap-4'>

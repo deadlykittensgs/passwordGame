@@ -6,9 +6,9 @@ export default function Rules() {
 
     <>
      <Header/>
-    <div className='flex justify-center bg-blue-800'>
+    <div className='flex justify-center bg-gradient-to-b from-fuchsia-500 to-cyan-500 '>
        
-        <div className='bg-blue-900 w-[80%] p-10'>
+        <div className=' bg-sky-500 w-[80%] p-10 '>
         
         
         
