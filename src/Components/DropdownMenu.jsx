@@ -36,7 +36,7 @@ export default function DropdownMenu() {
 
       {isOpen && (
         <div
-          className="origin-top-right absolute left-0 bottom-full mb-2 w-56 rounded-md shadow-lg bg-blue-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="origin-top-right absolute left-0 bottom-full mb-2 w-56 rounded-md shadow-lg bg-gradient-to-r from-blue-600 to-violet-700 ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
@@ -45,7 +45,7 @@ export default function DropdownMenu() {
           <div className="py-1" role="none">
             <a
               href="home"
-              className="text-white block px-4 py-2 text-sm hover:bg-gray-100"
+              className="text-white block px-4 py-2 text-sm hover:bg-gradient-to-r from-violet-700 to-blue-600"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-0"
@@ -54,7 +54,7 @@ export default function DropdownMenu() {
             </a>
             <a
               href="AddWords"
-              className="text-white block px-4 py-2 text-sm hover:bg-gray-100"
+              className="text-white block px-4 py-2 text-sm hover:bg-gradient-to-r from-violet-700 to-blue-600"
               role="menuitem"
               tabIndex="-1"
               id="menu-item-0"
@@ -62,32 +62,25 @@ export default function DropdownMenu() {
               Add Words
             </a>
             <a
-              href="catering"
-              className="text-white block px-4 py-2 text-sm hover:bg-gray-100"
+              href="rules"
+              className="text-white block px-4 py-2 text-sm hover:bg-gradient-to-r from-violet-700 to-blue-600"
               role="menuitem"
               tabIndex="-1"
-              id="menu-item-1"
+              id="menu-item-0"
             >
-              Reset Timer
+             Rules
             </a>
             <a
-              href="jobs"
-              className="text-white block px-4 py-2 text-sm hover:bg-gray-100"
+              href="help"
+              className="text-white block px-4 py-2 text-sm hover:bg-gradient-to-r from-violet-700 to-blue-600"
               role="menuitem"
               tabIndex="-1"
-              id="menu-item-1"
+              id="menu-item-0"
             >
-              Other Options
+            Help
             </a>
-            <a
-              href="/about"
-              className="text-white block px-4 py-2 text-sm hover:bg-gray-100"
-              role="menuitem"
-              tabIndex="-1"
-              id="menu-item-1"
-            >
-              Other Options
-            </a>
+           
+           
           </div>
         </div>
       )}

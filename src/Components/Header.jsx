@@ -2,9 +2,17 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div className='flex flex-1 items-center justify-center bg-gradient-to-bl from-blue-600 to-slate-900 max-h-[20%]'> 
-    <a className='mr-[10px]' href='home'> <i className="fa-solid fa-house"></i></a>
-    <p className='text-[1.5rem] font-bold '>Passwords Game</p>
+    <div className='flex flex-1 items-center justify-evenly max-h-[20%] background  '> 
+    <a className='flex flex-col text-center' href='home'> <i className=" text-[1.7rem] fa-solid fa-house hover:text-sky-500 "></i>
+    {/* <p>Home</p> */}
+    </a>
+    <p className='text-[1.5rem] font-bold bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent flex items-center justify-center border-solid border-[1px] rounded-full px-2 py-1 text-center'>Passwords Game</p>
+    <div className=' flex flex-col text-center' onClick={() => {location.reload()}}> <i className=" text-[1.7rem] fa-solid fa-skull-crossbones hover:text-red-500 "></i>
+   {/* <p>Restart</p>  */}
+   </div>
   </div>
   )
 }
+
+
+

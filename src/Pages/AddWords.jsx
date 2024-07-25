@@ -7,6 +7,7 @@ export default function AddWords() {
   const [newWord, setNewWord] = useState("")
   const [addWord, setAddWord] = useState("")
   const [allWords, setAllWords] = useState("")
+  const [conformation, setConformation ] = useState(`"Example"`)
 
   async function addWordToFirestore(word) {
     try {
@@ -23,6 +24,7 @@ export default function AddWords() {
   function submit(event) {
     event.preventDefault();  // Prevents the default form submission behavior
     console.log("clicked")
+    setConformation(newWord)
     addWordToFirestore(newWord)
     setNewWord("")
 
@@ -46,11 +48,13 @@ export default function AddWords() {
         <button type='submit' className='bg-slate-300 p-2 rounded'>Submit</button>
       </form>
 
-      <div className='flex flex-col flex-1 justify-center items-center'>
-        <div>NewWord: {newWord}</div>
-        <div>AddWord: {addWord}</div>
-        <div>AllWords: {allWords}</div>
-        <div></div>
+      <div className='flex flex-col flex-1 justify-center items-center gap-4'>
+     <p className='px-[20%] text-[1.2rem]'>You have added the word: </p>
+     <p className='text-bold text-[1.6rem] text-black'>{conformation}</p>
+     <p className='text-[1.2rem]'>To the game!</p>
+        <div>
+
+        </div>
       </div>
     </div>
   )

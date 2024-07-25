@@ -82,18 +82,18 @@ const telephoneWords = teleWords
 
 
 
-  // Use useEffect to call fetchWords on component mount.
-  useEffect(() => {
-    fetchWords();
-  }, []);
+  // // Use useEffect to call fetchWords on component mount.
+  // useEffect(() => {
+  //   fetchWords();
+  // }, []);
 
 
-  // Use useEffect to call getWords after allWords is updated.
-  useEffect(() => {
-    if (allWords.length > 0) {
-      getWords();
-    }
-  }, [allWords]);
+  // // Use useEffect to call getWords after allWords is updated.
+  // useEffect(() => {
+  //   if (allWords.length > 0) {
+  //     getWords();
+  //   }
+  // }, [allWords]);
 
 
 
@@ -196,9 +196,9 @@ function WhosTurn() {
   let team = teamOne
   
  if (team == true) {
-return ( <><i className="fa-solid fa-arrow-left"></i> <p>Red Team</p> </>)
+return ( <div className='flex items-center justify-center border-solid border-[1px] rounded-full p-1 gap-1 text-center'><i className="fa-solid fa-arrow-left"></i> <p>Red Team</p> </div>)
  } else {
-  return (<> <p>Blue Team</p>  <i className="fa-solid fa-arrow-right"></i></>)
+  return (<div className='flex items-center justify-center border-solid border-[1px] rounded-full p-1 gap-1 text-center' > <p>Blue Team</p>  <i className="fa-solid fa-arrow-right"></i></div>)
  }
   
 }
@@ -254,16 +254,16 @@ function start() {
 }
 
   return (
-<div className='flex flex-1 flex-col h-screen w-screen bg-gray-950'>
+<div className='flex flex-1 flex-col h-screen w-screen'>
 <Header/>
-  <div className='flex w-page justify-between bg-gray-950'>
-  <div className='flex flex-col bg-red-800 items-center justify-center p-2 text-center w-[35%]'>
+  <div className='flex w-page '>
+  <div className='flex flex-col bg-gradient-to-r from-rose-500 to-pink-500 items-center justify-center p-2 text-center w-[35%]'>
 <div onClick={() => { setTeamOnePoints(teamOnePoints + 1)}} className=' flex items-center justify-center '>+</div>
 <div>Red Team: {teamOnePoints}</div>
  <div onClick={() => { setTeamOnePoints(teamOnePoints - 1)}} className=' flex items-center justify-center' >-</div>
 </div>
-  <div onClick={changeTeam} className=' flex justify-center items-center bg-gray-950'> <WhosTurn/> </div>
-  <div className='flex flex-col bg-blue-500 items-center justify-center p-2 text-center w-[35%]'>
+  <div onClick={changeTeam} className=' flex-1 flex justify-center items-center bg-gradient-to-l from-sky-500 via-violet-600 to-pink-500'> <WhosTurn/> </div>
+  <div className='flex flex-col bg-gradient-to-r from-sky-500 to-blue-500 items-center justify-center p-2 text-center w-[35%]'>
 <div onClick={() => { setTeamTwoPoints(teamTwoPoints + 1)}} className=' flex items-center justify-center '>+</div>
 <div>Blue Team: {teamTwoPoints}</div>
  <div onClick={() => { setTeamTwoPoints(teamTwoPoints - 1)}} className=' flex items-center justify-center' >-</div>
@@ -272,16 +272,17 @@ function start() {
 
 <div className=' text-[2.5rem] flex min-h-[60%] items-center justify-center background'>{word}</div>
 
-<div className='flex flex-1 items-center justify-center gap-6 h-[100px]'>
-<button onClick={correct } className=' w-[20%] bg-green-400 rounded p-2'><i className="fa-solid fa-thumbs-up"></i></button>
-<button onClick={skipWord} className=' w-[20%] bg-slate-500 rounded p-2' ><i className="fa-solid fa-forward"></i></button>
-<button onClick={fail} className=' w-[20%] bg-red-400 rounded p-2'><i className="fa-solid fa-thumbs-down"></i></button>
+<div className='flex flex-1 items-center justify-center gap-6 h-[100px] bg-gradient-to-l from-pink-500 via-violet-600 to-sky-500 '>
+<button onClick={correct } className=' w-[20%] bg-gradient-to-r from-green-400 via-green-300 to-green-400 rounded p-2'><i className="fa-solid fa-thumbs-up"></i></button>
+<button onClick={skipWord} className=' w-[20%] bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 rounded p-2' ><i className="fa-solid fa-forward"></i></button>
+<button onClick={fail} className=' w-[20%] bg-gradient-to-r from-red-400 via-red-300 to-red-400 rounded p-2'><i className="fa-solid fa-thumbs-down"></i></button>
 </div>
 <div className='flex justify-between h-[75px]'> 
 
 <div className='flex flex-1'>
-<div className='flex justify-center items-center flex-1 bg-slate-600'> <DropdownMenu/></div>
-<button onClick={ () => {location.reload()}} className='flex justify-center items-center flex-1 bg-sky-200'><i className="fa-solid fa-rotate-right text-black"></i></button>
+<div className='flex justify-center items-center flex-1 bg-gradient-to-r from-slate-500 to-slate-800'> <DropdownMenu/></div>
+{/* optional button for later  */}
+{/* <button  className='flex justify-center items-center flex-1 bg-sky-200'><i className="fa-solid fa-rotate-right text-black"></i></button> */}
 </div>
 
 <div className='flex flex-1 flex-col background'>
@@ -289,7 +290,7 @@ function start() {
 <p className='flex justify-center items-center flex-1'>Skipped: {skippedThisRound} </p>
 </div>
 
-<div className='flex justify-center items-center flex-1 bg-slate-600' >
+<div className='flex justify-center items-center flex-1  bg-gradient-to-l from-slate-600 to-slate-400  ' >
 
  <div className='flex flex-col flex-1 h-[100%] w-[100%] items-center '>
   <div onClick={() => {clockTimeAdjust(10)}} className=' flex items-center justify-center'>+</div>
