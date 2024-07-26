@@ -266,7 +266,7 @@ function start() {
 
 <div className=' text-[2.5rem] flex min-h-[60%] items-center justify-center background'>{word}</div>
 
-<div className='flex flex-1 items-center justify-center gap-6 h-[100px] bg-gradient-to-l from-pink-500 via-violet-600 to-sky-500 '>
+<div className='flex flex-1 items-center justify-center gap-6 min-h-[100px] bg-gradient-to-l from-pink-500 via-violet-600 to-sky-500 '>
 <button onClick={correct } className=' w-[20%] bg-gradient-to-r from-green-400 via-green-300 to-green-400 rounded p-2 hover:bg-red-100'><i className="fa-solid fa-thumbs-up"></i></button>
 <button onClick={skipWord} className=' w-[20%] bg-gradient-to-r from-slate-500 via-slate-400 to-slate-500 rounded p-2' ><i className="fa-solid fa-forward"></i></button>
 <button onClick={fail} className=' w-[20%] bg-gradient-to-r from-red-400 via-red-300 to-red-400 rounded p-2'><i className="fa-solid fa-thumbs-down"></i></button>
@@ -280,7 +280,7 @@ function start() {
 </div>
 
 <div className='flex flex-1 flex-col background'>
-<p className='flex justify-center items-center flex-1'>Guessed: {thisRound} </p>
+<p className='flex justify-center items-center flex-1 '>Guessed: {thisRound} </p>
 <p className='flex justify-center items-center flex-1'>Skipped: {skippedThisRound} </p>
 </div>
 

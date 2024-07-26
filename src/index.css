@@ -7,8 +7,18 @@
 * {
   transition: transform 0.3s ease-in-out;
   color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .background {
   background: radial-gradient(circle, rgb(0, 0, 0), #122143);
+}
+
+
+.cursive {
+  font-family: cursive;
+}
+
+.fancy {
+  font-family: fantasy;
 }

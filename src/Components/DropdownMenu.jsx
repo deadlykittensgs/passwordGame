@@ -44,6 +44,7 @@ export default function DropdownMenu() {
         >
           <div className="py-1" role="none">
             <a
+            onClick={toggleDropdown}
               href="home"
               className="text-white block px-4 py-2 text-sm hover:bg-gradient-to-r from-violet-700 to-blue-600"
               role="menuitem"
